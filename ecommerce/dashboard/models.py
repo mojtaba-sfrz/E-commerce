@@ -9,8 +9,8 @@ class StockRecord(models.Modle):
     date_created = models.DateTimeField(_("Date created"),
                                         auto_now_add=True)
 
-    date_updated = models.DateTimeField(_("Date Updated",
-                                          auto_now=True))
+    date_updated = models.DateTimeField(_("Date Updated"),
+                                        auto_now=True)
 
     date_deleted = models.DateTimeField(_("Date Deleted"),
                                         null=True)
@@ -44,5 +44,9 @@ class StockRecord(models.Modle):
                   can order more.""")
 
     class Meta:
+        app_label = 'dashboard'
         verbose_name = _("Stock record")
         verbose_name_plural = _("Stock records")
+
+    def __str__(self):
+        return f"{self.num_in_stock} {self.product} provided by {self.supplier}"

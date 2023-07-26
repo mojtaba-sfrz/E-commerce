@@ -16,6 +16,7 @@ class AuthenticatedCustomer(user_model.User):
         return self.get_full_name()
 
     class Meta:
+        app_label = 'customers'
         verbose_name = _("old customer")
         ordering = ["first_name", "last_name"]
 

@@ -22,7 +22,7 @@ class Supplier(models.Model):
     scale_of_supplier = models.CharField(_("scale of business"),
                                          max_length=2, choices=BUSINESS_SCALE)
 
-    brand_name = models.CharField(_("Brand name"), max_length=100)
+    brand_name = models.CharField(_("Brand name"), max_length=100, unique=True)
 
     about_supplier = models.TextField(_("A summery about supplier"),
                                       blank=True)
@@ -30,5 +30,13 @@ class Supplier(models.Model):
     email = models.EmailField(_("Email to contact with supplier"))
 
     phone_number = models.CharField(_("Phone nuber to contact with supplier"), max_length=15)
+
+    class Meta:
+        app_label = 'suppliers'
+        verbose_name = _("Supplier")
+        verbose_name_plural = _("Suppliers")
+
+    def __str__(self):
+        return self.brand_name
 
 
