@@ -8,7 +8,7 @@ class AuthenticatedCustomer(user_model.User):
     """
     a user who already authenticated
     """
-    date_created = models.DateTimeField(_("Date created"), auto_now_add=True)
+    date_deleted = models.DateTimeField(_("Date Deleted"), null=True)
     date_updated = models.DateTimeField(_("Date Updated", auto_now=True))
     phone_number = models.CharField(max_length=15)
 

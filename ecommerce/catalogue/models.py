@@ -3,7 +3,10 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _, pgettext_lazy
 
 
-class AbstractProduct():
+class Product(models.Model):
+    """
+    this model records product information
+    """
 
     title = models.CharField(pgettext_lazy('Product title', 'Title'),
                              max_length=255, blank=True)
