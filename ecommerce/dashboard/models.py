@@ -1,11 +1,10 @@
 from django.db import models
-from django.utils import timezone
-from django.utils.translation import gettext_lazy as _, pgettext_lazy
+from django.utils.translation import gettext_lazy as _
 from ecommerce.catalogue.models import Product
 from ecommerce.suppliers.models import Supplier
 
 
-class StockRecord(models.Modle):
+class StockRecord(models.Model):
     date_created = models.DateTimeField(_("Date created"),
                                         auto_now_add=True)
 

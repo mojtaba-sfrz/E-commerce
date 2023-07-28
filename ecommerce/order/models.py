@@ -1,10 +1,9 @@
 from django.db import models
-from django.utils import timezone
-from django.utils.translation import gettext_lazy as _, pgettext_lazy
+from django.utils.translation import gettext_lazy as _
 from ecommerce.customers.models import AuthenticatedCustomer
 
 
-class Basket(models.Mdel):
+class Basket(models.Model):
     owner = models.OneToOneField(
         AuthenticatedCustomer,
         null=True,

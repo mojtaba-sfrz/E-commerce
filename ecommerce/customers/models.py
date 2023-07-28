@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth import models as user_model
-from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
@@ -19,10 +18,3 @@ class AuthenticatedCustomer(user_model.User):
         app_label = 'customers'
         verbose_name = _("old customer")
         ordering = ["first_name", "last_name"]
-
-
-
-
-
-
-

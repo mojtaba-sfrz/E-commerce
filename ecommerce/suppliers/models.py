@@ -1,14 +1,13 @@
 from django.db import models
-from django.utils import timezone
-from django.utils.translation import gettext_lazy as _, pgettext_lazy
-from ecommerce.catalogue.models import Product
+from django.utils.translation import gettext_lazy as _
 
 
 class Supplier(models.Model):
+    BB, SB, P = "BB", "SB", "P"
     BUSINESS_SCALE = [
-        ("BB", "Big business")
-        ("SB", "Small business")
-        ("p", "Person")
+        (BB, "Big business"),
+        (SB, "Small business"),
+        (P, "Person")
     ]
     date_created = models.DateTimeField(_("Date created"),
                                         auto_now_add=True)
@@ -38,5 +37,3 @@ class Supplier(models.Model):
 
     def __str__(self):
         return self.brand_name
-
-
