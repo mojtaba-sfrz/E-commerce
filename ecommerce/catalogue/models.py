@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _, pgettext_lazy
-from ecommerce.order.models import Basket
 
 
 class Product(models.Model):
@@ -14,11 +13,6 @@ class Product(models.Model):
     rating = models.FloatField(_('Rating'), null=True, editable=False)
     date_created = models.DateTimeField(_("Date created"), auto_now_add=True)
     date_updated = models.DateTimeField(_("Date Updated", auto_now=True))
-    added = models.ForeignKey(
-        Basket,
-        null=True,
-        related_name='added in',
-        on_delete=models.SET_NULL)
 
     class Meta:
         ordering = ['-date_created']
